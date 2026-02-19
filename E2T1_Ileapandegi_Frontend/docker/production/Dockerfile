@@ -12,7 +12,7 @@ COPY package*.json ./
 
 # Instalar dependencias
 RUN apk add --no-cache python3 make g++
-RUN npm install --only=production
+RUN npm install
 
 # Copiar código fuente
 COPY . .
