@@ -55,17 +55,14 @@ services:
       dockerfile: docker/staging/Dockerfile
     container_name: staging_vue
     restart: unless-stopped
-    volumes:
-      - ./E2T1_Ileapandegi_Frontend:/app
-      - /app/node_modules
     environment:
-      - VITE_API_URL=http://54.175.68.2:8000/api
+      - VITE_API_URL=http://localhost:8000/api
     depends_on:
       - backend
     networks:
       - app_network
     ports:
-      - "5173:5173"
+      - "5173:80"
 
 volumes:
   db_data:

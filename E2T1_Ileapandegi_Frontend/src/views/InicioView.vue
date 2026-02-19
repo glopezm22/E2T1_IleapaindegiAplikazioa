@@ -161,7 +161,7 @@ const obtenerCitasPorUsuario = async () => {
 
   try {
     let res = await fetch(
-      `http://100.25.200.198:8000/api/appointments?user_id=${idUsuario}`,
+      `http://localhost:8000/api/appointments?user_id=${idUsuario}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -172,7 +172,7 @@ const obtenerCitasPorUsuario = async () => {
 
     if (!res.ok) {
       res = await fetch(
-        'http://100.25.200.198:8000/api/appointments',
+        'http://localhost:8000/api/appointments',
         {
           headers: {
             'Content-Type': 'application/json',
@@ -245,7 +245,7 @@ async function confirmarEliminar() {
   const token = localStorage.getItem('token')
   
   try {
-    const res = await fetch(`http://100.25.200.198:8000/api/appointments/${citaIdAEliminar.value}`, {
+    const res = await fetch(`http://localhost:8000/api/appointments/${citaIdAEliminar.value}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

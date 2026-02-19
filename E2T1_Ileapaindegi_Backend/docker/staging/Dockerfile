@@ -37,4 +37,7 @@ COPY docker/staging/nginx.conf /etc/nginx/sites-available/default
 
 EXPOSE 8000
 
-CMD php artisan serve --host=0.0.0.0 --port=8000
+#CMD php artisan serve --host=0.0.0.0 --port=8000
+CMD ["php-fpm"]
+
+CMD ["nginx", "-g", "daemon off;"]

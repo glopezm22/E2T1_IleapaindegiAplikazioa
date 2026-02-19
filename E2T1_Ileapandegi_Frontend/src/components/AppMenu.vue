@@ -45,7 +45,7 @@ const rol = ref('')
 // Cargar rol del usuario al montar
 onMounted(async () => {
   try {
-    const res = await fetch('http://100.25.200.198:8000/api/profile', {
+    const res = await fetch('http://localhost:8000/api/profile', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }

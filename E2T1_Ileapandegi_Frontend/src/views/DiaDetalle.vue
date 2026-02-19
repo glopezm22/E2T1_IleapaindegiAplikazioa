@@ -174,7 +174,7 @@ const obtenerCitas = async () => {
 
   try {
     const res = await fetch(
-      `http://100.25.200.198:8000/api/appointments/by-date?date=${fechaStr.value}`,
+      `http://localhost:8000/api/appointments/by-date?date=${fechaStr.value}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -270,7 +270,7 @@ async function confirmarEliminar() {
   const token = localStorage.getItem('token')
   
   try {
-    const res = await fetch(`http://100.25.200.198:8000/api/appointments/${citaIdAEliminar.value}`, {
+    const res = await fetch(`http://localhost:8000/api/appointments/${citaIdAEliminar.value}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

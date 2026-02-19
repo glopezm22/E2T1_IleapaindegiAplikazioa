@@ -255,21 +255,21 @@ async function cargarDatos() {
   
   try {
     // Cargar clientes
-    const resClientes = await fetch('http://100.25.200.198:8000/api/clients', {
+    const resClientes = await fetch('http://localhost:8000/api/clients', {
       headers: { 'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}` }
     })
     clientes.value = await resClientes.json()
 
     // Cargar estudiantes
-    const resEstudiantes = await fetch('http://100.25.200.198:8000/api/students', {
+    const resEstudiantes = await fetch('http://localhost:8000/api/students', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     const estudiantesJson = await resEstudiantes.json()
     estudiantes.value = estudiantesJson.data
 
     // Cargar servicios de pelu
-    const resServicios = await fetch('http://100.25.200.198:8000/api/services', {
+    const resServicios = await fetch('http://localhost:8000/api/services', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     servicios.value = await resServicios.json()
@@ -323,7 +323,7 @@ async function guardarCita() {
 
   try {
     const isEdit = !!cita.id
-    const url = isEdit ? `http://100.25.200.198:8000/api/appointments/${cita.id}` : 'http://100.25.200.198:8000/api/appointments'
+    const url = isEdit ? `http://localhost:8000/api/appointments/${cita.id}` : 'http://localhost:8000/api/appointments'
     const method = isEdit ? 'PUT' : 'POST'
 
     const res = await fetch(url, {

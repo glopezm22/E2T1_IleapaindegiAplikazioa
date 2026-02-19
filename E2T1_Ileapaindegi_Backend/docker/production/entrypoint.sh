@@ -26,4 +26,6 @@ php artisan view:cache
 # Iniciar servidor Laravel
 echo "Starting Laravel server..."
 #exec php artisan serve --host=0.0.0.0 --port=8000
-exec /usr/sbin/nginx -g 'daemon off;'
+
+php-fpm &
+exec nginx -g 'daemon off;'

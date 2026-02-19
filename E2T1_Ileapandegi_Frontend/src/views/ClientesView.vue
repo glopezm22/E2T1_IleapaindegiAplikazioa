@@ -210,7 +210,7 @@ const obtenerClientes = async () => {
   error.value = null
   const token = localStorage.getItem('token')
   try {
-    const res = await fetch('http://100.25.200.198:8000/api/clients', {
+    const res = await fetch('http://localhost:8000/api/clients', {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
@@ -238,7 +238,7 @@ const guardarCliente = async (cliente) => {
     email: cliente.email || null
   }
   try {
-    const res = await fetch('http://100.25.200.198:8000/api/clients', {
+    const res = await fetch('http://localhost:8000/api/clients', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ const guardarCliente = async (cliente) => {
 const actualizarCliente = async (clienteActualizado) => {
   const token = localStorage.getItem('token')
   try {
-    const res = await fetch(`http://100.25.200.198:8000/api/clients/${clienteActualizado.id}`, {
+    const res = await fetch(`http://localhost:8000/api/clients/${clienteActualizado.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -286,13 +286,13 @@ const confirmarEliminarConfirmado = async () => {
     if (eliminarMultiple.value) {
       await Promise.all(
         seleccionados.value.map(id =>
-          fetch(`http://100.25.200.198:8000/api/clients/${id}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } })
+          fetch(`http://localhost:8000/api/clients/${id}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } })
         )
       )
       seleccionados.value = []
       seleccionadosTodos.value = false
     } else if (clienteAEliminar.value) {
-      await fetch(`http://100.25.200.198:8000/api/clients/${clienteAEliminar.value.id}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } })
+      await fetch(`http://localhost:8000/api/clients/${clienteAEliminar.value.id}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } })
       clienteAEliminar.value = null
     }
     await obtenerClientes()
