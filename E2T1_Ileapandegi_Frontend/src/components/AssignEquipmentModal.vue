@@ -100,7 +100,7 @@ watch(() => props.item, () => {
 // Traer alumnos
 onMounted(async () => {
   try {
-    const res = await fetch('http://localhost:8000/api/students', {
+    const res = await fetch('http://100.25.200.198:8000/api/students', {
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: 'application/json'

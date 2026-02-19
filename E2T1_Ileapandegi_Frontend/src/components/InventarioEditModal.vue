@@ -53,7 +53,7 @@ const categories = ref([])
 const token = localStorage.getItem('token')
 
 const fetchCategories = async () => {
-  const res = await fetch('http://localhost:8000/api/categories', {
+  const res = await fetch('http://100.25.200.198:8000/api/categories', {
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json'

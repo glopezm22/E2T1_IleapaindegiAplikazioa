@@ -74,7 +74,7 @@ const progreso = ref([])
 const cargarPerfil = async () => {
   try {
     // Traemos los datos del perfil
-    const resPerfil = await fetch('http://localhost:8000/api/profile', {
+    const resPerfil = await fetch('http://100.25.200.198:8000/api/profile', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
@@ -87,7 +87,7 @@ const cargarPerfil = async () => {
     perfil.value.email = dataPerfil.email || ''
 
     // Traemos los datos de progreso
-    const resProgreso = await fetch('http://localhost:8000/api/profile/progress', {
+    const resProgreso = await fetch('http://100.25.200.198:8000/api/profile/progress', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }

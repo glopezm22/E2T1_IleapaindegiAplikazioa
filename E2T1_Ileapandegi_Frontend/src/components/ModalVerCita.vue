@@ -110,7 +110,7 @@ async function cargarDetalle() {
   const token = localStorage.getItem('token')
 
   try {
-    const url = `http://localhost:8000/api/appointments/${props.id}`
+    const url = `http://100.25.200.198:8000/api/appointments/${props.id}`
 
     const res = await fetch(url, {
       headers: { 

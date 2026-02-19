@@ -306,7 +306,7 @@ const form = ref({})
 
 /* ===== API ===== */
 const token = localStorage.getItem('token')
-const apiUrl = 'http://localhost:8000/api/consumables'
+const apiUrl = 'http://100.25.200.198:8000/api/consumables'
 
 /* ===== Tabs ===== */
 const activeTab = ref('material')
@@ -319,7 +319,7 @@ const equipmentForm = ref({})
 const equipmentModalType = ref('')
 const showEquipmentModal = ref(false)
 
-const equipmentApiUrl = 'http://localhost:8000/api/equipments'
+const equipmentApiUrl = 'http://100.25.200.198:8000/api/equipments'
 
 const fetchEquipments = async () => {
   const res = await fetch(equipmentApiUrl, {
@@ -426,7 +426,7 @@ const occupiedEquipments = computed(() =>
 
 const finishEquipmentUsage = async (occupiedItemId) => {
   console.log("Se finalizaaa" + occupiedItemId);
-  await fetch(`http://localhost:8000/api/student-equipments/${occupiedItemId}/finish`, {
+  await fetch(`http://100.25.200.198:8000/api/student-equipments/${occupiedItemId}/finish`, {
     method: 'PUT',
     headers: { 'Authorization': `Bearer ${token}` }
   })
@@ -442,7 +442,7 @@ watch(activeTab, (tab) => {
 const studentEquipments = ref([])
 
 const fetchStudentEquipmentsActive = async () => {
-  const res = await fetch('http://localhost:8000/api/student-equipments/active', {
+  const res = await fetch('http://100.25.200.198:8000/api/student-equipments/active', {
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json'
@@ -470,10 +470,10 @@ const confirmAssignEquipment = async (payload) => {
 
   if (!payload.student_id) {
     // Finalizar uso
-    await fetch(`http://localhost:8000/api/student-equipments/${payload.id}/finish`, { method: 'PUT', headers: { Authorization: `Bearer ${token}`, Accept: 'application/json' } })
+    await fetch(`http://100.25.200.198:8000/api/student-equipments/${payload.id}/finish`, { method: 'PUT', headers: { Authorization: `Bearer ${token}`, Accept: 'application/json' } })
   } else {
     // Asignar equipamiento
-    await fetch('http://localhost:8000/api/student-equipments', {
+    await fetch('http://100.25.200.198:8000/api/student-equipments', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -609,7 +609,7 @@ const showCategoryModal = ref(false)
 const categoryModalType = ref('')
 const categoryForm = ref({})
 
-const categoryApiUrl = 'http://localhost:8000/api/categories'
+const categoryApiUrl = 'http://100.25.200.198:8000/api/categories'
 
 const fetchCategories = async () => {
   const res = await fetch(categoryApiUrl, {
