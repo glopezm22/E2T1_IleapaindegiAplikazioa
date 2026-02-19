@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  # MariaDB datu-basea
+  db:
+    image: mariadb:10.11
+    container_name: staging_mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ikasle123
+      MYSQL_DATABASE: staging_db
+      MYSQL_USER: staging
+      MYSQL_PASSWORD: ikasle123
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app_network
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend Laravel
+  backend:
+    build:
+      context: ./E2T1_Ileapaindegi_Backend
+      dockerfile: docker/staging/Dockerfile
+    container_name: staging_laravel
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./E2T1_Ileapaindegi_Backend:/var/www
+    environment:
+      APP_ENV: staging
+      APP_DEBUG: true
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: staging_db
+      DB_USERNAME: staging
+      DB_PASSWORD: ikasle123
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app_network
+    ports:
+      - "8000:8000"
+
+  # Frontend Vue
+  frontend:
+    build:
+      context: ./E2T1_Ileapandegi_Frontend
+      dockerfile: docker/staging/Dockerfile
+    container_name: staging_vue
+    restart: unless-stopped
+    volumes:
+      - ./E2T1_Ileapandegi_Frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000/api
+    depends_on:
+      - backend
+    networks:
+      - app_network
+    ports:
+      - "5173:5173"
+
+volumes:
+  db_data:
+
+networks:
+  app_network:
+    driver: bridge

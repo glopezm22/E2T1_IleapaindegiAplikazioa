@@ -1,0 +1,83 @@
+{
+   "profile": {
+    "title": "Mi perfil",
+    "name": "Nombre",
+    "email": "Email",
+    "role": "Rol",
+    "progress": "Mi progreso"
+  },
+  "clients": {
+    "title": "Clientes",
+    "search": "Buscar por nombre, apellido o teléfono...",
+    "delete": "Eliminar",
+    "new": "Nuevo cliente",
+    "none": "No se encontraron clientes",
+    "delete_one": "¿Deseas eliminar al cliente {name}?",
+    "delete_many": "¿Deseas eliminar {count} clientes?",
+    "none_selected": "No hay clientes seleccionados"
+  },
+  "table": {
+    "id": "ID cliente",
+    "name": "Nombre",
+    "surnames": "Apellidos",
+    "phone": "Teléfono",
+    "actions": "Acciones"
+  },
+  "menu": {
+    "home": "INICIO",
+    "inventory": "INVENTARIO",
+    "clients": "CLIENTES",
+    "portfolio": "PORTFOLIO",
+    "appointments": "CITAS",
+    "profile": "PERFIL",
+    "settings": "PARAMETRIZACIÓN"
+  },
+  "modal": {
+    "name": "Nombre",
+    "surnames": "Apellidos",
+    "email": "Email",
+    "phone": "Teléfono",
+    "observations": "Observaciones",
+    "no_observations": "Sin observaciones...",
+    "save": "Guardar",
+    "invalid_email": "Email no válido",
+    "invalid_phone": "Teléfono debe tener 9 números"
+  },
+   "newClient": {
+    "title": "Nuevo Cliente",
+    "name": "Nombre",
+    "surnames": "Apellidos",
+    "phone": "Teléfono",
+    "email": "Email",
+    "homeClient": "Cliente a domicilio",
+    "yes": "Sí",
+    "no": "No",
+    "save": "Guardar",
+    "errors": {
+      "nameRequired": "El nombre es obligatorio",
+      "surnamesRequired": "Los apellidos son obligatorios",
+      "onlyLetters": "Solo se permiten letras",
+      "invalidPhone": "Teléfono no válido",
+      "phone9Digits": "El teléfono debe tener 9 números",
+      "invalidEmail": "Email no válido",
+      "selectYesNo": "Selecciona Sí o No"
+    }
+  },
+  "deleteUser": {
+    "title": "Eliminar Usuarios",
+    "delete": "Eliminar"
+  },
+  "login": {
+    "loginTitle": "Iniciar sesión",
+    "user": "Usuario",
+    "userPlaceholder": "Ingresa tu usuario",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Ingresa tu contraseña",
+    "button": "Entrar",
+    "errorAuthTitle": "Error de autenticación",
+    "errorCredentials": "Credenciales incorrectas",
+    "errorUnexpected": "Error inesperado",
+    "errorNoServer": "No se pudo conectar con el servidor",
+    "close": "Cerrar"
+  }
+}

@@ -1,0 +1,82 @@
+{
+ "profile": {
+    "title": "Nire profila",
+    "name": "Izena",
+    "email": "Posta elektronikoa",
+    "role": "Rol",
+    "progress": "Nire aurrerapena"
+  },
+  "clients": {
+    "title": "Bezeroak",
+    "search": "Izena, abizena edo telefonoa bilatu...",
+    "delete": "Ezabatu",
+    "new": "Bezero berria",
+    "none": "Ez da bezerorik aurkitu",
+    "delete_one": "{name} bezeroa ezabatu nahi duzu?",
+    "delete_many": "{count} bezero ezabatu nahi dituzu?",
+    "none_selected": "Ez dago hautatutako bezerorik"
+  },
+  "table": {
+    "id": "Bezero IDa",
+    "name": "Izena",
+    "surnames": "Abizenak",
+    "phone": "Telefonoa",
+    "actions": "Ekintzak"
+  },
+  "menu": {
+    "home": "HASIERA",
+    "inventory": "INBENTARIOA",
+    "clients": "BEZEROAK",
+    "portfolio": "PORTFOLIOA",
+    "appointments": "HITZORDUAK",
+    "profile": "PROFILA",
+    "settings": "PARAMETRIZAZIOA"
+  },
+   "modal": {
+    "name": "Izena",
+    "surnames": "Abizenak",
+    "email": "Email",
+    "phone": "Telefonoa",
+    "observations": "Oharrak",
+    "no_observations": "Oharrik gabe...",
+    "save": "Gorde",
+    "invalid_email": "Email baliogabea",
+    "invalid_phone": "Telefonoak 9 zenbaki izan behar ditu"
+  },
+   "newClient": {
+    "title": "Bezero Berria",
+    "name": "Izena",
+    "surnames": "Abizenak",
+    "phone": "Telefonoa",
+    "email": "Email",
+    "homeClient": "Etxez etxeko bezeroa",
+    "yes": "Bai",
+    "no": "Ez",
+    "save": "Gorde",
+    "errors": {
+      "nameRequired": "Izena beharrezkoa da",
+      "surnamesRequired": "Abizenak beharrezkoak dira",
+      "onlyLetters": "Letrek soilik onartzen dira",
+      "invalidPhone": "Telefonoa baliogabea da",
+      "phone9Digits": "Telefonoak 9 zenbaki izan behar ditu",
+      "invalidEmail": "Email baliogabea da",
+      "selectYesNo": "Hautatu Bai edo Ez"
+    }
+  },"deleteUser": {
+    "title": "Erabiltzaileak Ezabatu",
+    "delete": "Ezabatu"
+  },
+   "login": {
+    "loginTitle": "Saioa hasi",
+    "user": "Erabiltzailea",
+    "userPlaceholder": "Sartu zure erabiltzailea",
+    "password": "Pasahitza",
+    "passwordPlaceholder": "Sartu zure pasahitza",
+    "button": "Sartu",
+    "errorAuthTitle": "Autentikazio errorea",
+    "errorCredentials": "Datu okerrak",
+    "errorUnexpected": "Errore ezezaguna",
+    "errorNoServer": "Ezin izan da zerbitzariarekin konektatu",
+    "close": "Itxi"
+  }
+}
