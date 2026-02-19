@@ -31,7 +31,7 @@ services:
     container_name: prod_vue
     restart: unless-stopped
     environment:
-      - VITE_API_URL=http://backend:8000/api
+      - VITE_API_URL=http://100.25.200.198:8000/api
     depends_on:
       - backend
     networks:
