@@ -8,14 +8,10 @@ services:
       dockerfile: docker/production/Dockerfile
     container_name: prod_laravel
     restart: unless-stopped
-    working_dir: /var/www
-    volumes:
-      - ./E2T1_Ileapaindegi_Backend:/var/www
-      - ./E2T1_Ileapaindegi_Backend/storage:/var/www/storage
     environment:
       APP_ENV: production
       APP_DEBUG: false
-      APP_KEY: base64:KN7PjcJuE2hQTz4N+JDQyyYeOnkmGEWzNbbb98tk+M4=
+      APP_KEY: base64:POOuzPdCWvcIL7g2/yKi8oUKkDxpTng42cUm7yelcPc=
       DB_CONNECTION: mysql
       DB_HOST: e2t1-prod-db.cw8ix8v2vqgu.us-east-1.rds.amazonaws.com
       DB_PORT: 3306
@@ -35,7 +31,7 @@ services:
     container_name: prod_vue
     restart: unless-stopped
     environment:
-      - VITE_API_URL=http://localhost:8000/api
+      - VITE_API_URL=http://backend:8000/api
     depends_on:
       - backend
     networks:
