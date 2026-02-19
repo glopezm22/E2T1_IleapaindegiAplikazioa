@@ -31,8 +31,6 @@ services:
     container_name: staging_laravel
     restart: unless-stopped
     working_dir: /var/www
-    volumes:
-      - ./E2T1_Ileapaindegi_Backend:/var/www
     environment:
       APP_ENV: staging
       APP_DEBUG: true
