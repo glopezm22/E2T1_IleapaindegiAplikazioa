@@ -8,22 +8,40 @@ const route = useRoute()
 
 <template>
   <!-- LOGIN -->
-   <div v-if="route.name === 'login'">
+  <div v-if="route.name === 'login'">
     <Login />
-   </div>
-
+  </div>
 
   <!-- RESTO DE LA APP -->
   <div v-else class="app-layout">
     <Menu />
-    <router-view />
+    <main class="app-main">
+      <router-view />
+    </main>
   </div>
 </template>
 
 <style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .app-layout {
   display: flex;
   min-height: 100vh;
-  justify-content: center;
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
 }
 </style>

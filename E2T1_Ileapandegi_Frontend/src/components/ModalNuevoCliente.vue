@@ -1,7 +1,7 @@
 <template>
-  <div class="modal-backdrop" @click.self="cerrarModal">
-    <div class="modal">
-      <button class="cerrar-btn" @click="cerrarModal">X</button>
+  <div class="nuevo-cliente-overlay" @click.self="cerrarModal">
+    <div class="nuevo-cliente-modal">
+      <button class="nuevo-cliente-cerrar" @click="cerrarModal" aria-label="Cerrar">&times;</button>
       <h2>{{ t('newClient.title') }}</h2>
 
       <div class="form-group">
@@ -116,6 +116,50 @@ function cerrarModal() {
 </script>
 
 <style scoped>
+.nuevo-cliente-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1060;
+  padding: 1rem;
+}
+
+.nuevo-cliente-modal {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: min(360px, 95vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nuevo-cliente-cerrar {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #555;
+  padding: 0;
+  z-index: 1;
+}
+
+.nuevo-cliente-cerrar:hover {
+  color: #000;
+}
+
 .radio-group {
   display: flex;
   gap: 20px;
@@ -127,44 +171,6 @@ function cerrarModal() {
   font-size: 0.85em;
   margin: 2px 0 8px 0;
 }
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1050;
-}
-
-.modal {
-  background: white;
-  border-radius: 8px;
-  padding: 20px 25px;
-  width: 360px;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  height: auto;
-  max-height: none;
-  overflow: visible;
-}
-
-.cerrar-btn {
-  position: absolute;
-  top: 10px; right: 12px;
-  border: none;
-  background: transparent;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
 
 .form-group {
   display: flex;
@@ -172,11 +178,14 @@ function cerrarModal() {
   gap: 4px;
 }
 
-input {
+input[type='text'],
+input[type='tel'],
+input[type='email'] {
   padding: 6px 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 14px;
+  width: 100%;
 }
 
 .guardar-btn {
@@ -187,5 +196,10 @@ input {
   padding: 8px 20px;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.guardar-btn:hover {
+  background-color: #5ec9c9;
 }
 </style>

@@ -67,6 +67,35 @@
     "title": "Eliminar Usuarios",
     "delete": "Eliminar"
   },
+  "portfolio": {
+    "title": "Portfolio de Trabajos",
+    "upload": "Subir trabajo",
+    "uploadTitle": "Subir fotos antes/después",
+    "loading": "Cargando portfolio...",
+    "empty": "No hay entradas en el portfolio con esos filtros.",
+    "before": "Antes",
+    "after": "Después",
+    "all": "Todos",
+    "filterStudent": "Filtrar por alumno",
+    "filterCategory": "Filtrar por categoría",
+    "student": "Alumno",
+    "selectStudent": "Seleccionar alumno",
+    "category": "Categoría",
+    "selectCategory": "Seleccionar categoría",
+    "photoBefore": "Foto antes",
+    "photoAfter": "Foto después",
+    "notes": "Observaciones",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "confirmDelete": "¿Deseas eliminar esta entrada del portfolio?",
+    "errors": {
+      "studentRequired": "Selecciona un alumno",
+      "categoryRequired": "Selecciona una categoría",
+      "photoRequired": "La foto es obligatoria"
+    }
+  },
   "login": {
     "loginTitle": "Iniciar sesión",
     "user": "Usuario",

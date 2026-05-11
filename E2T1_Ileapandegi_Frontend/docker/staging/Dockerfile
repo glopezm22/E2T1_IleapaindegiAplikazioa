@@ -1,28 +1,26 @@
 # Etapa de construcción
-FROM node:22-alpine as build
+FROM node:22-alpine AS build
 
 WORKDIR /app
 
-# Copiar archivos de dependencias
 COPY package*.json ./
 
-# Instalar dependencias
 RUN apk add --no-cache python3 make g++
 RUN npm install
 
-# Copiar código fuente
 COPY . .
 
-# Construir aplicación
+# VITE_API_URL se inyecta en tiempo de build para que Vite lo incluya en el bundle
+ARG VITE_API_URL=http://localhost:8000/api
+ENV VITE_API_URL=${VITE_API_URL}
+
 RUN npm run build
 
 # Etapa de producción con Nginx
 FROM nginx:alpine
 
-# Copiar archivos construidos
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copiar configuración de Nginx
 COPY docker/staging/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80

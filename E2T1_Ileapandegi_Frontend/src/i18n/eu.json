@@ -66,6 +66,35 @@
     "title": "Erabiltzaileak Ezabatu",
     "delete": "Ezabatu"
   },
+  "portfolio": {
+    "title": "Lanen Portfolioa",
+    "upload": "Lana igo",
+    "uploadTitle": "Aurretik/ondoren argazkiak igo",
+    "loading": "Portfolioa kargatzen...",
+    "empty": "Ez dago sarrerarik portfolio honetan iragazki horiekin.",
+    "before": "Aurretik",
+    "after": "Ondoren",
+    "all": "Denak",
+    "filterStudent": "Ikasleka iragazi",
+    "filterCategory": "Kategorika iragazi",
+    "student": "Ikaslea",
+    "selectStudent": "Ikaslea hautatu",
+    "category": "Kategoria",
+    "selectCategory": "Kategoria hautatu",
+    "photoBefore": "Aurretiko argazkia",
+    "photoAfter": "Ondorengo argazkia",
+    "notes": "Oharrak",
+    "save": "Gorde",
+    "saving": "Gordetzen...",
+    "delete": "Ezabatu",
+    "cancel": "Utzi",
+    "confirmDelete": "Portfolio-sarrera hau ezabatu nahi duzu?",
+    "errors": {
+      "studentRequired": "Ikaslea hautatu",
+      "categoryRequired": "Kategoria hautatu",
+      "photoRequired": "Argazkia beharrezkoa da"
+    }
+  },
    "login": {
     "loginTitle": "Saioa hasi",
     "user": "Erabiltzailea",

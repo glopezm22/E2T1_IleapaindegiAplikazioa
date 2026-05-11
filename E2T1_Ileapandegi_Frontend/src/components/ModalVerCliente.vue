@@ -1,23 +1,23 @@
 <template>
-  <div class="modal-backdrop">
-    <div class="modal-content p-4 rounded shadow bg-white position-relative" style="width: 360px;">
-      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" @click="$emit('cerrar')"></button>
+  <div class="ver-cliente-overlay" @click.self="$emit('cerrar')">
+    <div class="ver-cliente-modal p-4 rounded shadow bg-white position-relative">
+      <button type="button" class="ver-cliente-cerrar" @click="$emit('cerrar')" aria-label="Cerrar">&times;</button>
       <h5 class="mb-4">{{ cliente.name }} {{ cliente.surnames }}</h5>
 
-      <div class="d-flex mb-3">
-        <div class="avatar me-3">
+      <div class="d-flex mb-3 flex-wrap gap-2">
+        <div class="ver-cliente-avatar me-3">
           <img src="@/assets/img/user.png" alt="Avatar" class="rounded-circle" />
         </div>
 
         <div class="flex-grow-1">
           <div class="mb-3">
             <label class="form-label small">{{ t('modal.name') }}:</label>
-            <input v-model="form.name" type="text" class="form-control form-control-sm" disabled/>
+            <input v-model="form.name" type="text" class="form-control form-control-sm" disabled />
           </div>
 
           <div class="mb-3">
             <label class="form-label small">{{ t('modal.surnames') }}:</label>
-            <input v-model="form.surnames" type="text" class="form-control form-control-sm" disabled/>
+            <input v-model="form.surnames" type="text" class="form-control form-control-sm" disabled />
           </div>
         </div>
       </div>
@@ -36,15 +36,15 @@
 
       <div class="mb-3">
         <label class="form-label small">{{ t('modal.observations') }}:</label>
-        <textarea 
-          v-model="form.observations" 
-          rows="3" 
-          class="form-control form-control-sm" 
-          :placeholder="t('modal.no_observations')">
-        </textarea>
+        <textarea
+          v-model="form.observations"
+          rows="3"
+          class="form-control form-control-sm"
+          :placeholder="t('modal.no_observations')"
+        ></textarea>
       </div>
 
-      <button class="btn btn-info w-100 mt-2" @click="guardar">{{ t('modal.save') }}</button>
+      <button class="ver-cliente-guardar w-100 mt-2" @click="guardar">{{ t('modal.save') }}</button>
     </div>
   </div>
 </template>
@@ -98,13 +98,17 @@ function validarForm() {
   return valido
 }
 
-watch(() => props.cliente, (newCliente) => {
-  form.name = newCliente.name || ''
-  form.surnames = newCliente.surnames || ''
-  form.email = newCliente.email || ''
-  form.telephone = newCliente.telephone || ''
-  form.observations = newCliente.observations || ''
-}, { immediate: true })
+watch(
+  () => props.cliente,
+  (newCliente) => {
+    form.name = newCliente.name || ''
+    form.surnames = newCliente.surnames || ''
+    form.email = newCliente.email || ''
+    form.telephone = newCliente.telephone || ''
+    form.observations = newCliente.observations || ''
+  },
+  { immediate: true }
+)
 
 const guardar = () => {
   if (!validarForm()) return
@@ -114,56 +118,80 @@ const guardar = () => {
 </script>
 
 <style scoped>
-.modal-backdrop {
+.ver-cliente-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1050;
+  z-index: 1060;
+  padding: 1rem;
 }
 
-.modal-content {
-  max-width: 360px;
+.ver-cliente-modal {
+  width: min(360px, 95vw);
+  max-height: 90vh;
+  overflow-y: auto;
   border-radius: 10px;
+  position: relative;
 }
 
-.avatar img {
+.ver-cliente-cerrar {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  color: #555;
+  padding: 0;
+  z-index: 1;
+}
+
+.ver-cliente-cerrar:hover {
+  color: #000;
+}
+
+.ver-cliente-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ver-cliente-avatar img {
   width: 80px;
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
-  
 }
 
-.btn-info {
-  margin-top: 10px;
-  background-color: #9CE0DB !important;
+.ver-cliente-guardar {
+  background-color: #9CE0DB;
   border: none;
   border-radius: 8px;
   padding: 8px 20px;
   font-weight: 600;
   cursor: pointer;
   color: black;
-  box-shadow: none;
-  outline: none;
-  transition: none;
-}
-.avatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  transition: background-color 0.2s;
 }
 
-.btn-info:hover,
-.btn-info:focus,
-.btn-info:active {
-  background-color: #9CE0DB !important;
-  box-shadow: none !important;
-  outline: none !important;
-  color: black !important;
-  transition: none !important;
+.ver-cliente-guardar:hover {
+  background-color: #7dcfca;
 }
 
+@media (max-width: 480px) {
+  .ver-cliente-modal {
+    padding: 1rem !important;
+  }
+
+  .ver-cliente-avatar img {
+    width: 60px;
+    height: 60px;
+  }
+}
 </style>

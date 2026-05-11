@@ -14,6 +14,7 @@ use App\Http\Controllers\StudentConsumableController;
 use App\Http\Controllers\StudentEquipmentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
@@ -57,3 +58,11 @@ Route::apiResource('student_equipments', StudentEquipmentController::class)->exc
 
 Route::get('student_equipments-active', [StudentEquipmentController::class, 'active']);
 Route::put('student_equipments/{id}/finish', [StudentEquipmentController::class, 'finish']);
+
+// Portfolio de trabajos de alumnos
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('portfolios', [PortfolioController::class, 'index']);
+    Route::get('portfolios/{id}', [PortfolioController::class, 'show']);
+    Route::post('portfolios', [PortfolioController::class, 'store']);
+    Route::delete('portfolios/{id}', [PortfolioController::class, 'destroy']);
+});

@@ -26,6 +26,7 @@
       </div>
 
       <!-- Tabla clientes -->
+      <div class="tabla-wrapper">
       <table class="tabla-clientes">
         <thead>
           <tr>
@@ -64,6 +65,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- Modales -->
       <ModalConfirmacion
@@ -372,14 +374,20 @@ onMounted(() => {
   font-size: 1.2rem;
 }
 
-.tabla-clientes {
+.tabla-wrapper {
   margin-top: 0.5cm;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
+
+.tabla-clientes {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
   border-radius: 8px;
   overflow: hidden;
   font-family: Arial, sans-serif;
-  padding-top: 8rem;
 }
 
 .tabla-clientes thead {
@@ -435,7 +443,23 @@ onMounted(() => {
 .eliminar {
   color: red;
   cursor: pointer;
-  font-size: 1.6rem;  
+  font-size: 1.6rem;
 }
 
+@media (max-width: 600px) {
+  .acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-eliminar,
+  .btn-agregar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .buscador {
+    flex-direction: row;
+  }
+}
 </style>

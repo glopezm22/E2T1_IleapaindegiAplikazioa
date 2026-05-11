@@ -18,6 +18,9 @@
         <router-link to="/citas" active-class="active">{{ t('menu.appointments') }}</router-link>
       </li>
       <li>
+        <router-link to="/portfolio" active-class="active">{{ t('menu.portfolio') }}</router-link>
+      </li>
+      <li>
         <router-link to="/perfil" active-class="active">{{ t('menu.profile') }}</router-link>
       </li>
 
@@ -62,12 +65,54 @@ onMounted(async () => {
 /* Sidebar */
 .sidebar {
   width: 240px;
+  min-width: 200px;
   background-color: #222;
   color: white;
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
   user-select: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    margin-bottom: 0 !important;
+    margin-right: auto;
+  }
+
+  .logo img {
+    width: 80px !important;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .menu li {
+    margin-bottom: 0;
+  }
+
+  .menu a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .idioma {
+    margin-top: 0 !important;
+  }
 }
 
 .logo {
@@ -94,16 +139,26 @@ onMounted(async () => {
 
 .menu a {
   display: block;
-  padding: 1rem 1.5rem;
-  color: white;
+  padding: 0.75rem 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   border-radius: 0.5rem;
-  transition: background-color 0.25s ease;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-left: 3px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, border-left-color 0.2s ease;
 }
 
-.menu a:hover,
+.menu a:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
 .menu a.active {
-  background-color: #1f8aa0;
+  background-color: rgba(156, 224, 219, 0.12);
+  border-left-color: #9ce0db;
+  color: #9ce0db;
 }
 
 .idioma {

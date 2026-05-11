@@ -30,10 +30,15 @@
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
 
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
+  --color-heading: #154e68;
+  --color-text: #1a2e3b;
 
   --section-gap: 160px;
+
+  /* Brand palette */
+  --brand-teal: #9ce0db;
+  --brand-dark: #154e68;
+  --brand-red-soft: #ebb3b3;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,6 +63,10 @@
   font-weight: normal;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
   color: var(--color-text);
@@ -65,7 +74,7 @@ body {
   transition:
     color 0.5s,
     background-color 0.5s;
-  line-height: 1.6;
+  line-height: 1.65;
   font-family:
     Inter,
     -apple-system,

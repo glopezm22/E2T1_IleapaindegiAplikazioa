@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Administrador\\\\Documents\\\\E2T1_IleapaindegiAplikazioa\" -Force)",
+      "Bash(Select-Object Name, FullName)",
+      "Bash(docker compose *)",
+      "PowerShell(docker compose up *)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(Start-Process \"C:\\\\Program Files\\\\Docker\\\\Docker\\\\Docker Desktop.exe\"; Write-Host \"Docker Desktop iniciando...\")",
+      "PowerShell(Get-Content *)"
+    ]
+  }
+}

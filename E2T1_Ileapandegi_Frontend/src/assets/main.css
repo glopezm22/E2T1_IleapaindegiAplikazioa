@@ -5,7 +5,7 @@
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: #222;
+  background: #1e1e1e;
 }
 
 a,
@@ -17,19 +17,50 @@ a,
 }
 
 .content {
-  background: #222;
-  padding: 2rem;
+  background: #1e1e1e;
+  padding: 1.5rem;
   max-height: 100vh;
   width: 100%;
 }
 
 .content2 {
-  background: white;
-  border-radius: 20px;
-  padding: 2rem;
-  color: black;
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  color: #1a2e3b;
   height: 100%;
   overflow-y: auto;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  border-top: 3px solid #9ce0db;
+}
+
+/* Scrollbar sutil en el área de contenido */
+.content2::-webkit-scrollbar {
+  width: 5px;
+}
+.content2::-webkit-scrollbar-track {
+  background: transparent;
+}
+.content2::-webkit-scrollbar-thumb {
+  background: rgba(21, 78, 104, 0.18);
+  border-radius: 4px;
+}
+.content2::-webkit-scrollbar-thumb:hover {
+  background: rgba(21, 78, 104, 0.35);
+}
+
+/* Tipografía de encabezados en vistas */
+.content2 h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #154e68;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+}
+
+/* Botones globales: transición suave */
+button {
+  transition: opacity 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 
 @media (hover: hover) {
@@ -38,26 +69,19 @@ a,
   }
 }
 
-/* =====================
-   TABLET (≥ 768px)
-   ===================== */
 @media (min-width: 768px) {
-  #app {
-    /*padding: 1.5rem;QUITADO PARA QUE NO HAYA TANTO MARGEN*/
+  .content {
+    padding: 2rem;
   }
 }
 
-/* =====================
-   DESKTOP (≥ 1024px)
-   ===================== */
-@media (min-width: 1024px) {
-  #app {
-    /*padding: 2rem; QUITADO PARA QUE NO HAYA TANTO MARGEN*/
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
   }
 
-  body {
-    display: grid;
-    place-items: center;
+  .content2 {
+    padding: 1.25rem;
+    border-radius: 10px;
   }
 }
-
